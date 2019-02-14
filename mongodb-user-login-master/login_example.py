@@ -18,7 +18,7 @@ def index():
     
 
     
-@app.route('/login',methods=['POST'])
+@app.route('/api/v1/users',methods=['POST'])
 def login():
     users = mongo.db.users
     login_user = users.find_one({'name' : request.form['username']})
@@ -55,6 +55,20 @@ def register():
 
     return render_template('signup_page.html')
 
+@app.route('/delete',methods = ['POST','GET'])
+def delete_account():
+    return render_template('delete_account.html')
+
+@app.route('/delete_account',methods = ['POST'])
+def deletion():
+    if request.method == 'POST':
+        users = mongo.db.users
+        existing_user = users.find_one({'name' : request.form['name']})
+        if existing_user:
+            myquery = { 'name': existing_user['name'] }
+            session.pop('username')
+            users.delete_one(myquery)
+            return render_template('login_page.html')
 if __name__ == '__main__':
     app.secret_key = 'mysecret'
     app.run(debug=True)
