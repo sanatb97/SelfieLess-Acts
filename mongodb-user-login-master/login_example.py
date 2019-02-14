@@ -24,12 +24,14 @@ def login():
     login_user = users.find_one({'name' : request.form['username']})
 
     if login_user:
-        if sha1(request.form['pass']).hexdigest() == login_user['password']:
+
+        if sha1(request.form['pass']).hexdigest()== login_user['password']:
             session['username'] = request.form['username']
-            
             return render_template('int_page.html')
-    else:
-        return 'Invalid Login Credentials/ User does not exist'
+
+    return render_template('error_login.html')
+
+
 
 @app.route('/logout', methods = ['GET'])
 def logout():
@@ -49,7 +51,7 @@ def register():
             session['username'] = request.form['username']
             return redirect(url_for('index'))
         
-        return 'That username already exists!'
+        return render_template('error_signup.html')
 
     return render_template('signup_page.html')
 
