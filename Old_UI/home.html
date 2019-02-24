@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+<title>Selfieless Acts</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+<link rel="icon" href="logo.png" type="image/x-icon"/>
+<link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif;}
+body, html {
+  height: 100%;
+  color: #777;
+  line-height: 1.8;
+}
+ .nav-link{
+      color:black;
+    }
+    .navbar-nav{
+      margin-right: 0;
+   
+    }
+    li a {
+    display: block;
+    color: white;
+    font-family: Varela Round;
+    text-align: center;
+    padding: 5px 10px;
+    text-decoration: none;
+    font-size:30px;
+}
+/* Create a Parallax Effect */
+.bgimg-1, .bgimg-2, .bgimg-3 {
+  position: relative;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+
+}
+
+/* First image (Logo. Full height) */
+.bgimg-1 {
+  background-image: url('acts-of-kindness.jpg');
+  height: 100%;
+}
+
+/* Second image (Portfolio) */
+.bgimg-2 {
+  background-image: url("river.png");
+  height : 100%;
+}
+
+/* Third image (Contact) */
+.bgimg-3 {
+  background-image: url("tree.jpg");
+  height : 100%;
+}
+
+.w3-wide {letter-spacing: 10px;}
+.w3-hover-opacity {cursor: pointer;}
+
+.para
+{
+  font-family: Varela Round;
+}
+
+/* Turn off parallax scrolling for tablets and phones */
+@media only screen and (max-device-width: 1600px) {
+  .bgimg-1, .bgimg-2, .bgimg-3 {
+    background-attachment: scroll;
+    min-height: 400px;
+  }
+}
+</style>
+<body>
+
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+  <nav class="navbar navbar-expand-sm sticky-top">
+ 
+  
+  <a class="navbar-brand" href="home.html"><img src="logo.png" class="logo"></a>
+
+  <!-- Links -->
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      
+    </li>
+
+    <!-- Dropdown -->
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+        Categories
+      </a>  
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="environment_page.html">Environment</a>
+        <a class="dropdown-item" href="pwd_page.html">Public Works Department</a>
+        <a class="dropdown-item" href="military_veteran_page.html">Military and Veteran Support</a>
+        <a class="dropdown-item" href="#">School And Education</a>
+        <a class="dropdown-item" href="#">Community Service</a>
+      </div>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="upload.html">Upload</a>
+      </li>
+  </ul>
+</nav>
+
+  
+</div>
+
+<!-- First Parallax Image with Logo Text -->
+<div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
+  <div class="w3-display-middle" style="white-space:nowrap;">
+    <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity para">SELFIELESS <span class="w3-hide-small para">ACTS</span></span>
+  </div>
+</div>
+
+<!-- Container (About Section) -->
+<div class="w3-content w3-container w3-padding-64" id="about">
+  <h3 class="w3-center para">ABOUT US</h3>
+ 
+  <p class="para">We are a group of students from PES University with one common vision - to look at this world and celebrate the countless acts of selflessness and humanity which take place all over the world everyday.</p>
+  <div class="w3-row">
+    <div class="w3-col m6 w3-center w3-padding-large">
+      <img src="shreya.jpg"  width="150" height="150">
+      <p><b><i class="fa fa-user w3-margin-right"></i>Shreya SS</b></p><br>
+      <img src="sanat1.jpg" width="150" height="150">
+      <p><b><i class="fa fa-user w3-margin-right"></i>Sanat Bhandarkar</b></p><br>
+      <img src="sandya.jpg" width="150" height="150">
+      <p><b><i class="fa fa-user w3-margin-right"></i>Sandya Sivakumar</b></p><br>
+       <img src="shivani.jpg" width="150" height="150">
+      <p><b><i class="fa fa-user w3-margin-right"></i>Shivani Vogiral</b></p><br>
+     
+    </div>
+
+    <!-- Hide this text on small devices -->
+    <div class="w3-col m6 w3-hide-small w3-padding-large para">
+    <p>
+    Selflessness is essential to find happiness and fulfillment. But unfortunately, it is often overlooked.
+    Selflessness is often overlooked as a key to happiness because, on the surface, it appears to run contrary to the very notion. I mean, isn’t the pursuit of happiness by its very nature selfish?
+    <br>
+    No, it is not. Or at least, it doesn’t need to be.
+    Our lives can be lived for any number of purposes. They can be used to advance a personal kingdom for selfish reasons (money, possessions, fame, prestige, reputation). But our lives can also be lived for the pursuit of justice, happiness, or growth for another person or people group. We can live to solve the problems we encounter in this world. We can dedicate ourselves to advancing certain ideals. But only when we embrace service and selflessness will we find lasting significance in our world.
+    <br>
+    Many will try to define success in terms of winning out over others, having power over others, or the ability to dominate others. The lust for power is common and widespread in humans—the power to order others around, the power to make decisions that will impact others, and the power to own when others cannot. But this type of happiness and influence is short-lived. It will always fade. Nobody is intimately drawn to selfishness. Nobody seeks the wise counsel of a selfish person. Nobody is willing to give themselves up for one who desires his own kingdom above all things.
+    <br>
+    However, we are uniquely drawn to those who selflessly give of themselves. Those who love and give generously find a type of fulfillment that extends beyond position, title, or structure. They find an authority that reaches into our heart and soul. Their example is studied. Their counsel is sought. Their stories are told in positive ways. And their happiness is truly lasting.
+    </p>
+    </div>
+  </div>
+  
+
+
+
+<!-- Second Parallax Image with Portfolio Text -->
+<div class="bgimg-2 w3-display-container w3-opacity-min">
+  <div class="w3-display-middle">
+    <span class="w3-xxlarge w3-text-white w3-wide"></span>
+  </div>
+</div>
+
+<!-- Container (Portfolio Section) -->
+<div class="w3-content w3-container w3-padding-64" id="portfolio">
+  <h3 class="w3-center"></h3>
+ 
+
+  <!-- Responsive Grid. Four columns on tablets, laptops and desktops. Will stack on mobile devices/small screens (100% width) -->
+ 
+<!-- Modal for full size images on click-->
+<div id="modal01" class="w3-modal w3-black" onclick="this.style.display='none'">
+  <span class="w3-button w3-large w3-black w3-display-topright" title="Close Modal Image"><i class="fa fa-remove"></i></span>
+  <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+   
+    <p id="caption" class="w3-opacity w3-large"></p>
+  </div>
+</div>
+
+<!-- Third Parallax Image with Portfolio Text -->
+<div class="bgimg-3 w3-display-container w3-opacity-min">
+  <div class="w3-display-middle">
+     <span class="w3-xxlarge w3-text-white w3-wide">CONTACT</span>
+  </div>
+</div>
+
+<!-- Container (Contact Section) -->
+<div class="w3-content w3-container w3-padding-64" id="contact">
+ 
+  
+  <div class="w3-row w3-padding-32 w3-section">
+    <div class="w3-col m4 w3-container">
+     
+    </div>
+    <div class="w3-col m8 w3-panel">
+      <div class="w3-large w3-margin-bottom">
+        <i class="fa fa-map-marker fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i>Bangalore, India<br>
+        <i class="fa fa-envelope fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Email: selfielessacts@gmail.com<br>
+      </div>
+     
+      <form action="/action_page.php" target="_blank">
+        <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
+          <div class="w3-half">
+            <input class="w3-input w3-border" type="text" placeholder="Name" required name="Name">
+          </div>
+          <div class="w3-half">
+            <input class="w3-input w3-border" type="text" placeholder="Email" required name="Email">
+          </div>
+        </div>
+        <input class="w3-input w3-border" type="text" placeholder="Message" required name="Message">
+        <button class="w3-button w3-black w3-right w3-section" type="submit">
+          <i class="fa fa-paper-plane"></i> SEND MESSAGE
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="w3-center w3-black w3-padding-64 w3-opacity w3-hover-opacity-off">
+  <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
+  <div class="w3-xlarge w3-section">
+    <i class="fa fa-facebook-official w3-hover-opacity"></i>
+    <i class="fa fa-instagram w3-hover-opacity"></i>
+    <i class="fa fa-snapchat w3-hover-opacity"></i>
+    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+    <i class="fa fa-twitter w3-hover-opacity"></i>
+    <i class="fa fa-linkedin w3-hover-opacity"></i>
+  </div>
+</footer>
+ 
+<script>
+// Modal Image Gallery
+function onClick(element) {
+  document.getElementById("img01").src = element.src;
+  document.getElementById("modal01").style.display = "block";
+  var captionText = document.getElementById("caption");
+  captionText.innerHTML = element.alt;
+}
+
+// Change style of navbar on scroll
+window.onscroll = function() {myFunction()};
+function myFunction() {
+    var navbar = document.getElementById("myNavbar");
+    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+        navbar.className = "w3-bar" + " w3-card" + " w3-animate-top" + " w3-white";
+    } else {
+        navbar.className = navbar.className.replace(" w3-card w3-animate-top w3-white", "");
+    }
+}
+
+// Used to toggle the menu on small screens when clicking on the menu button
+function toggleFunction() {
+    var x = document.getElementById("navDemo");
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+    } else {
+        x.className = x.className.replace(" w3-show", "");
+    }
+}
+</script>
+
+</body>
+</html>
