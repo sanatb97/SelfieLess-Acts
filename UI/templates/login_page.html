@@ -6,7 +6,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="/static/w3.css">
 <link rel="stylesheet" href="/static/fonts.css">
-
 <!--<link rel="stylesheet" href="./W3.CSS Template_files/css">-->
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -64,12 +63,31 @@ span.psw {
   float: right;
   padding-top: 16px;
 }
-
-
-
-
-
 </style>
+   <script src= "../static/jquery-3.3.1.min.js"></script>
+   <script src= "../static/sha1.min.js"></script>
+     <script src = "../static/sha1.js"></script>
+   <script>
+            $(document).ready(function() {
+                // bind the form submit event to our function
+                $("#loginForm").bind('submit', function(e) {
+                    // prevent page refresh
+                    e.preventDefault();
+                    // post the data
+                    var ajax=$.ajax({
+                        type: "GET",
+                        data: $("#loginForm").serialize(),
+                        url: "http://{{ip_address}}:{{port_no}}/checkuser"
+                    }).done(function(data){
+                        console.log('done!')
+                    });
+                    ajax.fail(function(data){
+                        console.log('error!');
+                    });
+                });
+            });
+     </script>
+
 </head><body>
 
 <!-- Sidebar/menu -->
@@ -80,8 +98,8 @@ span.psw {
   </div>
   <div class="w3-bar-block">
  
-    <a href=""  class="w3-bar-item w3-button w3-hover-white">About</a> 
-    <a href=""  class="w3-bar-item w3-button w3-hover-white">Login/Sign Up</a> 
+    <a href="http://{{ip_address}}:{{port_no}}/home"  class="w3-bar-item w3-button w3-hover-white">About</a> 
+    <a href="http://{{ip_address}}:{{port_no}}/login"  class="w3-bar-item w3-button w3-hover-white">Login/Sign Up</a> 
   
   </div>
 </nav>
@@ -100,22 +118,23 @@ span.psw {
 
   <!-- About US -->
   <div class="w3-container" id="designers" style="margin-top:75px">
-    <h1 class="w3-xxxlarge w3-text-red"><b>Login/Sign Up</b></h1>
+    <h1 class="w3-xxxlarge w3-text-red"><b>Login</b></h1>
     <hr style="width:50px;border:5px solid red" class="w3-round">
     </div>
 
-<form method="POST" enctype="application/json">
+<form enctype="multipart/form-data" role="form" method = 'GET' action ="http://{{ip_address}}:{{port_no}}/categories" id="loginForm">
 
   <div class="container">
     <label for="uname"><b>Username</b></label>
-    <input type="text" placeholder="Enter Username" name="uname" required>
+    <input type="text" name="username" id="inputUsername" class="form-control" placeholder="Username" required>
 
     <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" required>
-        
-    <button type="submit" class = "w3-red">Login</button>
+    <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
+
+    <button type="submit" id = "btnblock" >Signup</button>
+    <center>Do you not have an account? Click <a href="http://{{ip_address}}:{{port_no}}/signup">here</a> to register</center>
    </div>
-   <center>Do you not have an account? Click <a href="">here</a> to Sign Up </center>
+   
    <br>
 
 </form>

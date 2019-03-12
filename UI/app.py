@@ -1,3 +1,7 @@
+port_no = 5000
+ip_address = 'localhost'
+
+
 from flask import Flask, jsonify, request
 import pymongo
 from flask_pymongo import PyMongo
@@ -7,47 +11,79 @@ import datetime
 import base64
 from flask import Flask, render_template, url_for, request, session, redirect, flash
 from hashlib import sha1
+import os
 
-app = Flask(__name__)
+app = Flask(__name__,template_folder = "templates")
+app.secret_key = os.urandom(16)
+
 app.config['MONGO_DBNAME'] = 'admin'
 app.config['MONGO_URI'] = 'mongodb://localhost:27017/admin'
 mongo = PyMongo(app)
 
 
-@app.route('/api/home')
-def home_page():
-    return render_template('selfielessacts.html')
+@app.route('/home')
+def home():
+    return render_template('selfielessacts.html', ip_address = ip_address, port_no = port_no)
 
-@app.route('/api/login')
-def login_page():
-    return render_template('login_page.html')
+@app.route('/signup')
+def signup():
+    return render_template('signup_page.html', ip_address = ip_address, port_no = port_no)
+
+@app.route('/categories',methods=['POST'])
+def categories():
+    return render_template('categories.html', ip_address = ip_address, port_no = port_no)
+
+@app.route('/login')
+def login():
+    return render_template('login_page.html', ip_address = ip_address, port_no = port_no)
+
+@app.route('/checkuser', methods = ['GET'])
+def checkuser():
+    user = mongo.db.users
+    username = request.form.get('username')
+    password = request.form.get('password')
+    print(username,password)
+    old_user = user.find_one({'username' : username})
+    print("HERE")
+    print(password)
+    response = jsonify({})
+
+    if (old_user):
+        response.status_code = 201
+        return response
+
+    else :
+        response.status_code = 405
+        return response
 
 @app.route('/api/v1/users', methods=['POST'])
 def add_user():
-    user = mongo.db.users
-    username = request.json['username']
-    password = request.json['password']
-    old_user = user.find_one({'username' : username})
-    response = jsonify({})
+    if(request.method == 'POST'):
+        print("Here")
+        user = mongo.db.users
+        username = request.form['username']
+        password = request.form['password']
+        old_user = user.find_one({'username' : username})
+        response = jsonify({})
 
-    #If User already exists
-    if (old_user):
-        response.status_code = 405
-        return response
-        
-    #Checking for SHA1 Hash Hex format of password
-    if len(password)!=40:
-        response.status_code = 400
-        return response
-    for a in password:
-        if a not in "1234567890abcdef":
+        #If User already exists
+        if (old_user):
+            response.status_code = 405
+            return response
+            
+        #Checking for SHA1 Hash Hex format of password
+        if len(password)!=40:
             response.status_code = 400
             return response
+        for a in password:
+            if a not in "1234567890abcdef":
+                response.status_code = 400
+                return response
 
-    user_id = user.insert({'username' : username, 'password' : password})
-    new_user = user.find_one({'_id' : user_id})
-    output = {'username' : new_user['username'], 'password' : new_user['password']}
-    return jsonify({}), 201
+        user_id = user.insert({'username' : username, 'password' : password})
+        new_user = user.find_one({'_id' : user_id})
+        output = {'username' : new_user['username'], 'password' : new_user['password']}
+        return jsonify({}), 201
 
 @app.route('/api/v1/users/<name>', methods=['DELETE'])
 def delete_user(name):

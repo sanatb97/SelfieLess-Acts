@@ -4,8 +4,8 @@
   <title>Show your selfless love!</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="w3.css">
-<link rel="stylesheet" href="fonts.css">
+<link rel="stylesheet" href="/static/w3.css">
+<link rel="stylesheet" href="/static/fonts.css">
 <!--<link rel="stylesheet" href="./W3.CSS Template_files/css">-->
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -63,24 +63,40 @@ span.psw {
   float: right;
   padding-top: 16px;
 }
-
-
-
-
-
 </style>
+   <script src= "../static/jquery-3.3.1.min.js"></script>
+   <script src= "../static/sha1.min.js"></script>
+     <script src = "../static/sha1.js"></script>
+   <script>
+     $(function(){
+          $('#btnblock').click(function(){
+                  var user = $('#inputUsername').val();
+                  var pass = sha1($('#inputPassword').val());
+                      // JSON.stringify({username : user, password : pass})
+                      //alert(pass);
+                      $.ajax({
+                             url : 'http://{{ip_address}}:{{port_no}}/api/v1/users',
+                             data : {username : user, password : pass},
+                             method : 'POST'
+                             
+                             
+                  });
+            });
+     });
+     </script>
+
 </head><body>
 
 <!-- Sidebar/menu -->
 <nav class="w3-sidebar w3-red w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:250px;font-weight:bold;padding-left:10px;" id="mySidebar"><br>
   <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft" style="width:100%;font-size:22px">Close Menu</a>
   <div class="w3-container">
-    <h3><img src="logowhite.png"/></h3>
+    <h3><img src="/static/images/logowhite.png"/></h3>
   </div>
   <div class="w3-bar-block">
  
-    <a href="selfielessacts.html"  class="w3-bar-item w3-button w3-hover-white">About</a> 
-    <a href="login_page.html"  class="w3-bar-item w3-button w3-hover-white">Login/Sign Up</a> 
+    <a href="http://{{ip_address}}:{{port_no}}/home"  class="w3-bar-item w3-button w3-hover-white">About</a> 
+    <a href="http://{{ip_address}}:{{port_no}}/login"  class="w3-bar-item w3-button w3-hover-white">Login/Sign Up</a> 
   
   </div>
 </nav>
@@ -99,23 +115,20 @@ span.psw {
 
   <!-- About US -->
   <div class="w3-container" id="designers" style="margin-top:75px">
-    <h1 class="w3-xxxlarge w3-text-red"><b>Login/Sign Up</b></h1>
+    <h1 class="w3-xxxlarge w3-text-red"><b>Sign Up</b></h1>
     <hr style="width:50px;border:5px solid red" class="w3-round">
     </div>
 
-<form>
+<form enctype="multipart/form-data" role="form" method = 'POST' action ="http://{{ip_address}}:{{port_no}}/categories">
 
   <div class="container">
     <label for="uname"><b>Username</b></label>
-    <input type="text" placeholder="Enter Username" name="uname" required>
+    <input type="text" name="username" id="inputUsername" class="form-control" placeholder="Username" required>
 
     <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" required>
+    <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
 
-    <label for="psw"><b>Confirm Password</b></label>
-    <input type="password" placeholder="Confirm Password" name="psw" required>
-        
-    <button type="submit" class = "w3-red">Signup</button>
+    <button type="submit" id = "btnblock" >Signup</button>
    </div>
    
    <br>
