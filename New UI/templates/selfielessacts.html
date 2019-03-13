@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<!-- saved from url=(0070)https://www.w3schools.com/w3css/tryw3css_templates_interior_design.htm -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Show your selfless love!</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/static/w3.css">
+
+<!--<link rel="stylesheet" href="./W3.CSS Template_files/css">-->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+<!--<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>-->
+<!--<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>-->
+<style>
+body,h1,h2,h3,h4,h5 {font-family: "Poppins", sans-serif}
+body {font-size:16px;}
+.w3-half img{margin-bottom:-6px;margin-top:16px;opacity:0.8;cursor:pointer;height:250px;}
+.w3-half img:hover{opacity:1}
+.vote {
+  background-color: #a6a6a6;
+  border: none;
+  color: white;
+  padding: 12px 16px;
+  font-size: 16px;
+  cursor: pointer;
+}
+.carousel-caption{
+	left:0;
+	right:0;
+	background: rgba(255, 0, 0, 0.5);
+}
+.vote:hover {
+  background-color: #a6a6a6;
+}
+
+  .like
+  {
+    margin-left: auto;
+  }
+.overlay {
+  position: absolute; 
+  bottom: 0; 
+  background: rgb(0, 0, 0);
+  background: rgba(255, 0, 0, 0.5); /* Black see-through */
+  color: #f1f1f1; 
+  width: 100%;
+  transition: .5s ease;
+  opacity:0;
+  color: white;
+  font-size: 20px;
+  padding: 20px;
+  text-align: center;
+}
+.wrapper{
+position:relative;
+}
+.wrapper:hover .overlay {
+  opacity: 1;
+}
+.sizer{
+	heigth:80%;
+}
+
+.sandya,.shreya,.sanat,.shivani {
+  float: left;
+}
+
+.photo
+{
+	margin-left: 500px;
+}
+nav{
+  border-right:5px solid red;
+}
+
+
+
+
+</style>
+</head><body>
+
+<!-- Sidebar/menu -->
+<nav class="w3-sidebar w3-black w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:19%;font-weight:bold;padding-left:10px;" id="mySidebar"><br>
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft" style="width:100%;font-size:22px">Close Menu</a>
+  <div class="w3-container">
+    <h3><img src="/static/images/logowhite.png"/></h3>
+  </div>
+  <div class="w3-bar-block">
+ 
+    <a href="http://{{ip_address}}:{{port_no}}/home"  class="w3-bar-item w3-button w3-hover-white">Home</a> 
+    <a href="http://{{ip_address}}:{{port_no}}/categories"  class="w3-bar-item w3-button w3-hover-white">Categories</a> 
+	<a href= "http://{{ip_address}}:{{port_no}}/login"  class="w3-bar-item w3-button w3-hover-white">Login/Sign Up</a> 
+  </div>
+</nav>
+
+<!-- Top menu on small screens -->
+<header class="w3-container w3-top w3-hide-large w3-red w3-xlarge w3-padding">
+  <a href="javascript:void(0)" class="w3-button w3-red w3-margin-right" onclick="w3_open()">☰</a>
+  <span>Company Name</span>
+</header>
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:340px;margin-right:40px;margin-top:-60px;">
+
+  <!-- About US -->
+  <div class="w3-container" id="designers" style="margin-top:75px">
+    <h1 class="w3-xxxlarge w3-text-red"><b>About Us</b></h1>
+    <hr style="width:50px;border:5px solid red" class="w3-round">
+    <p>
+ 		We are a group of students from PES University with one common vision - to look at this world and celebrate the countless acts of selflessness and humanity which take place all over the world everyday.
+ 	</p>
+  </div>
+
+  <center>
+  <img src="/static/images/sanat1.jpg" alt="sanat" height="200" width="200" id="sanat">
+  <img src="/static/images/shivani.jpg" alt="shivani" height="200" width="200" id="shivani">
+  <img src="/static/images/sandya.jpg" alt="sandya" height="200" width="200" id="sandya">
+  <img src="/static/images/shreya.jpg" alt="shreya" height="200" width="200" id="shreya">
+  </center>
+
+    <!-- About US -->
+  <div class="w3-container" id="designers" style="margin-top:75px">
+    <h1 class="w3-xxxlarge w3-text-red"><b>Inspiration</b></h1>
+    <hr style="width:50px;border:5px solid red" class="w3-round">
+    <p>
+ 		Selflessness is essential to find happiness and fulfillment. But unfortunately, it is often overlooked.
+    	Selflessness is often overlooked as a key to happiness because, on the surface, it appears to run contrary to the very notion.
+    	<br>
+    	However, we are uniquely drawn to those who selflessly give of themselves. Those who love and give generously find a type of fulfillment that extends beyond position, title, or structure. They find an authority that reaches into our heart and soul. Their example is studied. Their counsel is sought. Their stories are told in positive ways. And their happiness is truly lasting.
+    	<center><img src="/static/images/acts-of-kindness.jpg" height="400" width="600"></center>
+ 	</p>
+  </div>
+
+    
+
+
+
+
+
+  
+
+
+
+  
+  <!-- Contact -->
+  <div class="w3-container" id="contact" style="margin-top:75px">
+    <h1 class="w3-xxxlarge w3-text-red"><b>Contact</b></h1>
+    <hr style="width:50px;border:5px solid red" class="w3-round">
+    <p>Do you want to share your selfless love with us? Leave a message.</p>
+    <form action="https://www.w3schools.com/action_page.php" target="_blank">
+      <div class="w3-section">
+        <label>Name</label>
+        <input class="w3-input w3-border" type="text" name="Name" required="">
+      </div>
+      <div class="w3-section">
+        <label>Email</label>
+        <input class="w3-input w3-border" type="text" name="Email" required="">
+      </div>
+      <div class="w3-section">
+        <label>Message</label>
+        <input class="w3-input w3-border" type="text" name="Message" required="">
+      </div>
+      <button type="submit" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom">Send Message</button>
+    </form>  
+  </div>
+
+<!-- End page content -->
+</div>
+
+
+
+<script>
+// Script to open and close sidebar
+function w3_open() {
+  document.getElementById("mySidebar").style.display = "block";
+  document.getElementById("myOverlay").style.display = "block";
+}
+ 
+function w3_close() {
+  document.getElementById("mySidebar").style.display = "none";
+  document.getElementById("myOverlay").style.display = "none";
+}
+
+// Modal Image Gallery
+function onClick(element) {
+  //document.getElementById("img01").src = element.src;
+  document.getElementById("modal01").style.display = "block";
+  //var captionText = document.getElementById("caption");
+  //captionText.innerHTML = element.alt;
+}
+function close1(element){
+	console.log("in");
+	var s = document.getElementById("modal01");
+	s.style.display="none";
+}
+function addCategory(){
+	
+}
+</script>
+
+
+</body></html>
