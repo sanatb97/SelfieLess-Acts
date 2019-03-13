@@ -75,9 +75,11 @@ span.psw {
                     // prevent page refresh
                     e.preventDefault();
                     // post the data
+                    var user = $('#inputUsername').val();
+                  var pass = sha1($('#inputPassword').val());
                     var ajax=$.ajax({
-                        type: "GET",
-                        data: $("#loginForm").serialize(),
+                        type: "POST",
+                        data:{username : user, password : pass},
                         url: "http://{{ip_address}}:{{port_no}}/checkuser"
                     }).done(function(data){
                         console.log('done!')
@@ -123,7 +125,7 @@ span.psw {
     <hr style="width:50px;border:5px solid red" class="w3-round">
     </div>
 
-<form enctype="multipart/form-data" role="form" method = 'GET' action ="http://{{ip_address}}:{{port_no}}/categories" id="loginForm">
+<form enctype="multipart/form-data" role="form" method = 'POST' id="loginForm" action ="http://{{ip_address}}:{{port_no}}/categories">
 
   <div class="container">
     <label for="uname"><b>Username</b></label>
@@ -132,7 +134,7 @@ span.psw {
     <label for="psw"><b>Password</b></label>
     <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
 
-    <button type="submit" id = "btnblock" >Signup</button>
+    <button type="submit" id = "btnblock" >Login</button>
     <center>Do you not have an account? Click <a href="http://{{ip_address}}:{{port_no}}/signup">here</a> to register</center>
    </div>
    
