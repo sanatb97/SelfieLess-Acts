@@ -81,6 +81,7 @@ span.psw {
                              
                              
                   });
+                      alert('Added To Database');
             });
      });
      </script>
@@ -119,7 +120,7 @@ span.psw {
     <hr style="width:50px;border:5px solid red" class="w3-round">
     </div>
 
-<form enctype="multipart/form-data" role="form" method = 'POST' action ="http://{{ip_address}}:{{port_no}}/categories">
+<form enctype="multipart/form-data" role="form" onsubmit="window.open('http://{{ip_address}}:{{port_no}}/categories')" >
 
   <div class="container">
     <label for="uname"><b>Username</b></label>

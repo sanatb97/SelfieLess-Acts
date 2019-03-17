@@ -64,25 +64,25 @@ span.psw {
   padding-top: 16px;
 }
 </style>
+
    <script src= "../static/jquery-3.3.1.min.js"></script>
    <script src= "../static/sha1.min.js"></script>
      <script src = "../static/sha1.js"></script>
    <script>
      $(function(){
-          $('#loginForm').click('submit',function(e)
-          {
-              e.preventDefault();
-                  var user = $('#inputUsername').val();
-                  var pass = sha1($('#inputPassword').val());
-                      // JSON.stringify({username : user, password : pass})
-                      //alert(pass);
+          $('#btnblock').click(function(){
+                  var name = $('#inputUsername').val();
+            
+                
                       $.ajax({
-                             url : 'http://{{ip_address}}:{{port_no}}/api/v1/users',
-                             data : {username : user, password : pass},
-                             method : 'POST'
+                             
+                              data: {name:name},
+                              url : 'http://{{ip_address}}:{{port_no}}/api/v1/users/data',                             
+                              method : 'DELETE'
                              
                              
                   });
+                      alert('Added To Database');
             });
      });
      </script>
@@ -97,17 +97,11 @@ span.psw {
   </div>
   <div class="w3-bar-block">
  
-    <a href="http://{{ip_address}}:{{port_no}}/home"  class="w3-bar-item w3-button w3-hover-white">About</a> 
-    <a href="http://{{ip_address}}:{{port_no}}/login"  class="w3-bar-item w3-button w3-hover-white">Login/Sign Up</a> 
+    <a href="http://{{ip_address}}:{{port_no}}/home"  class="w3-bar-item w3-button w3-hover-white">Home</a>
   
   </div>
 </nav>
 
-<!-- Top menu on small screens -->
-<header class="w3-container w3-top w3-hide-large w3-red w3-xlarge w3-padding">
-  <a href="javascript:void(0)" class="w3-button w3-red w3-margin-right" onclick="w3_open()">☰</a>
-  <span>Company Name</span>
-</header>
 
 <!-- Overlay effect when opening sidebar on small screens -->
 <div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
@@ -117,20 +111,17 @@ span.psw {
 
   <!-- About US -->
   <div class="w3-container" id="designers" style="margin-top:75px">
-    <h1 class="w3-xxxlarge w3-text-red"><b>Sign Up</b></h1>
+    <h1 class="w3-xxxlarge w3-text-red"><b>Login</b></h1>
     <hr style="width:50px;border:5px solid red" class="w3-round">
     </div>
 
-<form enctype="multipart/form-data" role="form" method = 'POST' action ="http://{{ip_address}}:{{port_no}}/categories" id = "loginForm">
+<form id="loginForm" enctype="multipart/form-data" role="form" onsubmit="window.open('http://{{ip_address}}:{{port_no}}/home')">
 
   <div class="container">
     <label for="uname"><b>Username</b></label>
     <input type="text" name="username" id="inputUsername" class="form-control" placeholder="Username" required>
-
-    <label for="psw"><b>Password</b></label>
-    <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
-
     <button type="submit" id = "btnblock" >Signup</button>
+
    </div>
    
    <br>

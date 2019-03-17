@@ -29,13 +29,17 @@ def home():
 def signup():
     return render_template('signup_page.html', ip_address = ip_address, port_no = port_no)
 
-@app.route('/categories',methods=['POST'])
+@app.route('/categories')
 def categories():
     return render_template('categories.html', ip_address = ip_address, port_no = port_no)
 
 @app.route('/login')
 def login():
     return render_template('login_page.html', ip_address = ip_address, port_no = port_no)
+
+@app.route('/delete_account')
+def delete_account():
+    return render_template('delete_account.html', ip_address = ip_address, port_no = port_no)
 
 @app.route('/checkuser', methods = ['GET'])
 def checkuser():

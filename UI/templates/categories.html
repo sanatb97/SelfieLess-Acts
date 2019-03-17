@@ -74,12 +74,13 @@ position:relative;
   margin-left: 500px;
 }
 
-
-
-
-
 </style>
-</head><body>
+
+
+</head>
+
+
+<body>
 
 <!-- Sidebar/menu -->
 <nav class="w3-sidebar w3-red w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:250px;font-weight:bold;padding-left:10px;" id="mySidebar"><br>
@@ -89,21 +90,13 @@ position:relative;
   </div>
   <div class="w3-bar-block">
  
-    <a href=""  class="w3-bar-item w3-button w3-hover-white">About</a> 
-    <a href=""  class="w3-bar-item w3-button w3-hover-white">Logout</a>
-    <a href="" class="w3-bar-item w3-button w3-hover-white">Categories</a> 
+    <a href="http://{{ip_address}}:{{port_no}}/home"  class="w3-bar-item w3-button w3-hover-white">Home</a> 
+    <a href="http://{{ip_address}}:{{port_no}}/logout"  class="w3-bar-item w3-button w3-hover-white">Logout</a>
+    <a href="http://{{ip_address}}:{{port_no}}/categories" class="w3-bar-item w3-button w3-hover-white">Categories</a>
+    <a href="http://{{ip_address}}:{{port_no}}/delete_account" class="w3-bar-item w3-button w3-hover-white" id = "del">Delete Account</a> 
   
   </div>
 </nav>
-
-<!-- Top menu on small screens -->
-<header class="w3-container w3-top w3-hide-large w3-red w3-xlarge w3-padding">
-  <a href="javascript:void(0)" class="w3-button w3-red w3-margin-right" onclick="w3_open()">☰</a>
-  <span>Company Name</span>
-</header>
-
-<!-- Overlay effect when opening sidebar on small screens -->
-<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
 
 <!-- !PAGE CONTENT! -->
 <div class="w3-main" style="margin-left:340px;margin-right:40px;margin-top:-60px;">
@@ -113,118 +106,34 @@ position:relative;
     <h1 class="w3-xxxlarge w3-text-red"><b>Welcome!</b></h1>
     <hr style="width:50px;border:5px solid red" class="w3-round">
   </div>
-  <center class = "w3-text-red"><h3>Check out the feed in various categories</h3></center>
-<center>
-  <div>
-  <button type="button" class="btn btn-danger" onclick="addCategory()" style="width:50%;background-color:red;">Add Category</button>
+
+ 
+  <button type="button" class="btn btn-danger" style="width:50%;background-color:red;">Add Category</button>
   <br>
   <br>
-  <div id="choosecateg">
-    <div class="dropdown" >
-    <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" style="width:50%;background-color:red;">
+  <button type="button" class="btn btn-danger"style="width:50%;background-color:red;">
       Delete Category
-    </button>
-    <div class="dropdown-menu" id="choose">
-      <a class="dropdown-item" href="#" onclick="deleteMe(this)">Environment</a>
-      <a class="dropdown-item" href="#" onclick="deleteMe(this)">Public Works Department</a>
-      <a class="dropdown-item" href="#" onclick="deleteMe(this)">Military and Veteran Support</a>
-      <a class="dropdown-item" href="#" onclick="deleteMe(this)">School and Education</a>
-      <a class="dropdown-item" href="#" onclick="deleteMe(this)">Community Service</a>
-    </div>
-  </div>
-  </div>
-  </div>
-</center>
-<hr>
-<!--Tiles-->
-<div class="w3-row-padding">
-    <div class="w3-half" id="col1">
-  <div class="wrapper">
-      <img src="images\env1.jpg" style="width:100%" onclick="onClick(this)" alt="Environment">
-    <div class="overlay">Environment</div>
-  </div>
-  <div class="wrapper">
-      <img src="images\military1.jpg" style="width:100%" onclick="onClick(this)" alt="Military and Veteran Support">
-    <div class="overlay">Military and Veteran Support</div>
-  </div>
-  <div class="wrapper">
-      <img src="images\railway-line-construction.jpg" style="width:100%" onclick="onClick(this)" alt="Public Works Department">
-    <div class="overlay">Public Works Department</div>
-  </div>
-    </div>
+  </button>
+  
+<div class="form-popup" id="myForm">
+  <form action="" class="form-container">
+    <input type="text" placeholder="Add Category" name="email" required>
 
-    <div class="w3-half" id="col2">
-  <div class="wrapper">
-      <img src="images\education2.jpg" style="width:100%" onclick="onClick(this)" alt="School and Education">
-    <div class="overlay">School and Education</div>
-  </div>
-  <div class="wrapper">
-      <img src="images\community1.jpg" style="width:100%" onclick="onClick(this)" alt="Community Service">
-    <div class="overlay">Community Service</div>
-  </div>
-  </div>
-  </div>
+    <button type="submit" class="btn">Add Category now!</button>
+    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+  </form>
 </div>
-<hr>
+
+
 <script>
-function addCategory(){
-  var category_name = prompt("Enter name of the category - ");
-  if(category_name!="")
-  {
-    var d = document.getElementById("choose");
-    inner = "<a class='dropdown-item' href='#'' onclick='deleteMe(this)'>"+category_name+"</a>";
-    d.innerHTML+=inner;
-
-    var divElement = document.createElement("div");
-    divElement.setAttribute("class", "wrapper");
-
-    var imgElement = document.createElement("img");
-    imgElement.setAttribute("src", "images/cam_icon.jpg");
-    imgElement.setAttribute("style", "width:100%");
-    imgElement.setAttribute("onclick", "onClick(this)");
-    imgElement.setAttribute("alt", "Image did not load");
-    divElement.appendChild(imgElement);
-    
-    var divElement2 = document.createElement("div");
-    divElement2.setAttribute("class", "overlay");
-    divElement2.innerHTML=category_name;
-    divElement.appendChild(divElement2);
-
-
-    col1=document.getElementById("col1");
-    col2=document.getElementById("col2");
-    len1=col1.childElementCount;
-    len2=col2.childElementCount;  
-    if(len1<=len2)
-    {
-      col1.appendChild(divElement)
-    }
-    else
-    {
-      col2.appendChild(divElement)
-    }
-
-  }
+function openForm() {
+  document.getElementById("myForm").style.display = "block";
 }
-function deleteMe(e)
-{
-  var a=document.getElementById("choose");
-  a.removeChild(e);
-  console.log("eeeee",e.innerHTML);
-  var col = document.getElementsByClassName('w3-half')
-  for(i=0;i<col.length;i++)
-  {
-    var del = document.getElementsByClassName('wrapper');
-    for(j=0;j<del.length;j++)
-    {
-      var ch = del[j].children[1];
-      console.log(ch);
-      if(ch.innerHTML==e.innerHTML)
-      {
-        col[i].removeChild(del[j]);
-      }
-    }
-  }
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
 }
 </script>
+
+
 </body></html>
