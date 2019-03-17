@@ -37,15 +37,13 @@ def categories():
 def login():
     return render_template('login_page.html', ip_address = ip_address, port_no = port_no)
 
-<<<<<<< HEAD
 @app.route('/delete_account')
 def delete_account():
     return render_template('delete_account.html', ip_address = ip_address, port_no = port_no)
 
+
+
 @app.route('/checkuser', methods = ['GET'])
-=======
-@app.route('/checkuser', methods = ['POST'])
->>>>>>> fe19070cba67a38be5804be40eb75905de6a749e
 def checkuser():
     user = mongo.db.users
     username = request.form.get('username')
@@ -53,13 +51,12 @@ def checkuser():
     print(username,password)
     old_user = user.find_one({'username' : username})
     print("HERE")
-    
+    print(password)
     response = jsonify({})
 
     if (old_user):
         response.status_code = 201
-        print("Account Exists")
-        return render_template('categories.html', ip_address = ip_address, port_no = port_no)
+        return response
 
     else :
         response.status_code = 405
